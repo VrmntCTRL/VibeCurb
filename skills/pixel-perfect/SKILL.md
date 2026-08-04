@@ -5,7 +5,7 @@ description: Image-to-code replication pipeline. When the user provides a screen
 
 # Pixel-Perfect Design Replication
 
-> This skill fires when the user provides a screenshot, mockup, Figma export, or any design image and asks you to replicate it in code. The reference image is the specification. Your role is translator, not designer. Every visual decision — font size, spacing, color, radius, shadow, layout proportion — comes from the image, not from your preferences.
+> This skill fires when the user provides a screenshot, mockup, Figma export, or any design image and asks you to replicate it in code. The reference image is the specification. Your role is translator, not designer. Every visual decision - font size, spacing, color, radius, shadow, layout proportion - comes from the image, not from your preferences.
 
 ---
 
@@ -54,13 +54,13 @@ Before any code, state what you see in structured natural language. This anchors
 
 Example:
 
-> *Light mode, 1440px desktop. Five sections: sticky frosted nav with logo left / links center / CTA right, hero with massive serif heading left-aligned over full-bleed photography, 3-col feature grid with icon-top cards, testimonial carousel with large quotation marks, minimal footer with 4-col link grid. Palette: warm cream base, near-black text, terracotta accent on CTAs. Typography: serif display heading (likely Playfair Display), geometric sans body (likely Outfit). Cards are sharp-cornered, buttons are pill-shaped. No visible shadows — flat design with subtle border separators.*
+> *Light mode, 1440px desktop. Five sections: sticky frosted nav with logo left / links center / CTA right, hero with massive serif heading left-aligned over full-bleed photography, 3-col feature grid with icon-top cards, testimonial carousel with large quotation marks, minimal footer with 4-col link grid. Palette: warm cream base, near-black text, terracotta accent on CTAs. Typography: serif display heading (likely Playfair Display), geometric sans body (likely Outfit). Cards are sharp-cornered, buttons are pill-shaped. No visible shadows - flat design with subtle border separators.*
 
 ### → If the image is unclear
 
 Do not guess. Ask specifically:
 
-> *"The nav links are too compressed to read at this resolution. The body font could be Outfit or Satoshi — they share near-identical geometry at this size. Can you provide a closer crop of the nav, or confirm the font stack?"*
+> *"The nav links are too compressed to read at this resolution. The body font could be Outfit or Satoshi - they share near-identical geometry at this size. Can you provide a closer crop of the nav, or confirm the font stack?"*
 
 ### ✓ Quality Gate: Intake
 
@@ -73,7 +73,7 @@ Before moving to Phase 2, confirm:
 
 ## Phase 2: Deep Extraction
 
-Run all seven extraction layers on the reference image. Each layer focuses on one dimension of the design. Fill in the Extraction Sheet for each. Skipping a layer causes drift — small errors here compound into "it looks off" in the final build.
+Run all seven extraction layers on the reference image. Each layer focuses on one dimension of the design. Fill in the Extraction Sheet for each. Skipping a layer causes drift - small errors here compound into "it looks off" in the final build.
 
 ---
 
@@ -85,9 +85,9 @@ Extract the spatial skeleton.
 
 | Property | Measured value |
 |---|---|
-| Container max-width | e.g. `1280px`, `1440px` — measure by proportion against viewport edges |
+| Container max-width | e.g. `1280px`, `1440px` - measure by proportion against viewport edges |
 | Column system | e.g. `grid-cols-[1.15fr_1fr]`, `grid-cols-3`, `single column centered` |
-| Horizontal padding | e.g. `px-6 md:px-12 lg:px-20` — measure the gap between content edge and viewport edge |
+| Horizontal padding | e.g. `px-6 md:px-12 lg:px-20` - measure the gap between content edge and viewport edge |
 | Section heights | `min-h-[100dvh]` for full-viewport, `auto` for content-driven |
 | Section spacing | Vertical gap between sections, e.g. `py-24 lg:py-32` |
 | Alignment | Per-section: left / center / right / mixed |
@@ -98,7 +98,7 @@ Extract the spatial skeleton.
 - If one column is visually 1.5x wider than the adjacent column, use `grid-cols-[1.5fr_1fr]`
 - If empty space above a heading is roughly 2x the heading font size, the padding is approximately `2em` relative to the heading
 
-⚠ **Drift Warning:** The most common layout error is getting the container max-width wrong. A design with `max-w-[1200px]` looks noticeably different from one with `max-w-[1440px]` — the whitespace proportions change completely. Measure carefully.
+⚠ **Drift Warning:** The most common layout error is getting the container max-width wrong. A design with `max-w-[1200px]` looks noticeably different from one with `max-w-[1440px]` - the whitespace proportions change completely. Measure carefully.
 
 ---
 
@@ -120,7 +120,7 @@ This is the most critical extraction. Wrong typography is the #1 reason a replic
 | CTA text | | | | | | | |
 | Footer links | | | | | | | |
 
-**Font identification — what to look for:**
+**Font identification - what to look for:**
 
 Fonts reveal themselves through specific characters. Study these before guessing:
 
@@ -130,7 +130,7 @@ Fonts reveal themselves through specific characters. Study these before guessing
 | Lowercase `g` | Open-tail (most sans-serifs) vs closed-tail (Futura, some geometric) |
 | Lowercase `t` | Curved crossbar (humanist: Manrope, Jakarta) vs straight (geometric: Outfit, Satoshi) |
 | Capital `R` | Straight leg (Geist, Helvetica) vs curved leg (Outfit, Satoshi) |
-| Capital `Q` | Tail style varies dramatically between fonts — strong identifier |
+| Capital `Q` | Tail style varies dramatically between fonts - strong identifier |
 | Lowercase `e` | High crossbar (geometric) vs centered (humanist) |
 | Numbers `1, 4, 6, 9` | Highly distinctive shapes across fonts |
 
@@ -147,7 +147,7 @@ Fonts reveal themselves through specific characters. Study these before guessing
 | Display sans, wide, heavy | Cabinet Grotesk, Clash Display, Monument Extended |
 | Monospace | JetBrains Mono, Fira Code, IBM Plex Mono, Geist Mono, Space Mono |
 
-If you cannot confidently identify the font, state your top 2-3 candidates with the distinguishing character that makes you lean one way. Example: *"The double-story 'a' and round 'o' suggest Outfit, but the slightly squared terminals could indicate Satoshi. Defaulting to Outfit — swap by changing `--font-display` if incorrect."*
+If you cannot confidently identify the font, state your top 2-3 candidates with the distinguishing character that makes you lean one way. Example: *"The double-story 'a' and round 'o' suggest Outfit, but the slightly squared terminals could indicate Satoshi. Defaulting to Outfit - swap by changing `--font-display` if incorrect."*
 
 ⚠ **Drift Warning:** Never assume a heading is `font-weight: 700` because "headings are bold." Many premium designs use `500` or `600` for headings with a heavier font face. Look at stem thickness relative to the counter space.
 
@@ -155,7 +155,7 @@ If you cannot confidently identify the font, state your top 2-3 candidates with 
 
 ### Layer 3: Color Palette
 
-Extract every distinct color. Not "it uses blue" — extract the hex.
+Extract every distinct color. Not "it uses blue" - extract the hex.
 
 **Extraction Sheet:**
 
@@ -176,10 +176,10 @@ Extract every distinct color. Not "it uses blue" — extract the hex.
 
 Screenshots compress colors. To get accurate values:
 - Sample from the **largest flat area** of the color, not from edges or JPEG artifacts
-- Cross-reference with common web values — if you measure `#0b0b0b`, it is almost certainly `#0a0a0a` (standard off-black). If you measure `#f4f3f1`, it is likely `#f5f4f2` (common warm cream)
+- Cross-reference with common web values - if you measure `#0b0b0b`, it is almost certainly `#0a0a0a` (standard off-black). If you measure `#f4f3f1`, it is likely `#f5f4f2` (common warm cream)
 - After extracting, verify WCAG AA contrast between text and background colors to confirm the values are reasonable
 
-⚠ **Drift Warning:** The difference between `#FFFFFF` (pure white) and `#F5F0EB` (warm cream) completely changes the feel of a page. Do not default to `#FFFFFF` or `#000000` unless the reference genuinely shows pure values — most premium designs use off-white and off-black.
+⚠ **Drift Warning:** The difference between `#FFFFFF` (pure white) and `#F5F0EB` (warm cream) completely changes the feel of a page. Do not default to `#FFFFFF` or `#000000` unless the reference genuinely shows pure values - most premium designs use off-white and off-black.
 
 ---
 
@@ -225,13 +225,13 @@ Catalog every distinct UI component visible in the image.
 | Divider | | | | | | |
 
 **Border-radius consistency check:** Most designs commit to one radius language. Check whether the design uses:
-- **Sharp** — `0px` everywhere (brutalist, editorial)
-- **Subtle** — `4-8px` everywhere (SaaS, product)
-- **Rounded** — `12-16px` everywhere (modern, friendly)
-- **Pill** — `9999px` on buttons, rounded on cards (premium, polished)
-- **Mixed** — different radii for different components (verify each one)
+- **Sharp** - `0px` everywhere (brutalist, editorial)
+- **Subtle** - `4-8px` everywhere (SaaS, product)
+- **Rounded** - `12-16px` everywhere (modern, friendly)
+- **Pill** - `9999px` on buttons, rounded on cards (premium, polished)
+- **Mixed** - different radii for different components (verify each one)
 
-⚠ **Drift Warning:** If buttons are pill-shaped (`rounded-full`) in the reference, they cannot be `rounded-lg` in the code. Radius mismatches are immediately visible — the eye detects them faster than color or spacing errors.
+⚠ **Drift Warning:** If buttons are pill-shaped (`rounded-full`) in the reference, they cannot be `rounded-lg` in the code. Radius mismatches are immediately visible - the eye detects them faster than color or spacing errors.
 
 ---
 
@@ -288,7 +288,7 @@ Before moving to Phase 3, confirm:
 
 ## Phase 3: Build
 
-Implementation starts here. Follow this exact build order — each step depends on the one before it.
+Implementation starts here. Follow this exact build order - each step depends on the one before it.
 
 ### → Step 1: Global Foundation
 
@@ -303,7 +303,7 @@ Set the design tokens first. Everything else references these.
 @import url('https://fonts.googleapis.com/css2?family=FONT_NAME:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Colors — from Extraction Sheet Layer 3 */
+  /* Colors - from Extraction Sheet Layer 3 */
   --color-bg: #____;
   --color-surface: #____;
   --color-text: #____;
@@ -313,17 +313,17 @@ Set the design tokens first. Everything else references these.
   --color-accent-hover: #____;
   --color-border: rgba(_, _, _, _);
 
-  /* Typography — from Extraction Sheet Layer 2 */
+  /* Typography - from Extraction Sheet Layer 2 */
   --font-display: 'FONT_NAME', Georgia, serif;
   --font-body: 'FONT_NAME', system-ui, sans-serif;
   --font-mono: 'FONT_NAME', monospace;
 
-  /* Spacing — from Extraction Sheet Layer 4 */
+  /* Spacing - from Extraction Sheet Layer 4 */
   --space-section: clamp(5rem, 10vw, 8rem);
   --space-component: 2rem;
   --space-element: 1rem;
 
-  /* Radius — from Extraction Sheet Layer 5 */
+  /* Radius - from Extraction Sheet Layer 5 */
   --radius-card: __px;
   --radius-button: __px;
   --radius-input: __px;
@@ -350,7 +350,7 @@ body {
 
 ### → Step 2: Layout Skeleton
 
-Build the section containers with correct dimensions. No content yet — just the boxes.
+Build the section containers with correct dimensions. No content yet - just the boxes.
 
 ```css
 /* BLUEPRINT: Section containers
@@ -374,7 +374,7 @@ Build the section containers with correct dimensions. No content yet — just th
   justify-content: center;
 }
 
-/* Grid layouts — adjust columns to match reference */
+/* Grid layouts - adjust columns to match reference */
 .grid-2-asymmetric {
   display: grid;
   grid-template-columns: 1.15fr 1fr; /* From Layer 1 */
@@ -404,14 +404,14 @@ Apply all text styles from the Layer 2 Extraction Sheet.
 ```css
 /* BLUEPRINT: Typography scale
    WHY: Every property is explicitly set from the extraction.
-   Never rely on browser defaults — they will drift. */
+   Never rely on browser defaults - they will drift. */
 
 .heading-display {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 6vw, 5rem); /* From extraction */
   font-weight: 700;   /* Verified from stem thickness, not assumed */
-  line-height: 0.95;  /* Tight — measured from baseline gap */
-  letter-spacing: -0.03em; /* Negative — measured from character proximity */
+  line-height: 0.95;  /* Tight - measured from baseline gap */
+  letter-spacing: -0.03em; /* Negative - measured from character proximity */
   color: var(--color-text);
   text-wrap: balance;
   max-width: 18ch;    /* Prevents 4+ line wraps */
@@ -458,7 +458,7 @@ Apply all text styles from the Layer 2 Extraction Sheet.
 Build each component from the Layer 5 Extraction Sheet.
 
 ```css
-/* BLUEPRINT: Button — primary
+/* BLUEPRINT: Button - primary
    WHY: Padding, radius, and font-size are from the extraction.
    The transition easing (0.16, 1, 0.3, 1) gives a snappy 
    deceleration that feels physical. */
@@ -495,7 +495,7 @@ Build each component from the Layer 5 Extraction Sheet.
   outline-offset: 2px;
 }
 
-/* BLUEPRINT: Button — ghost/outline */
+/* BLUEPRINT: Button - ghost/outline */
 .btn-ghost {
   display: inline-flex;
   align-items: center;
@@ -801,7 +801,7 @@ Walk through the reference and tag each visual element:
 | **Icons** (outlined/filled) | ✅ Yes | Use an icon library or inline SVG |
 | **Photographs** | ❌ No | Generate a mood-matched image or use `picsum.photos/seed/{keyword}/{w}/{h}` |
 | **Hand-drawn illustrations** | ❌ No | Generate a matching illustration with `generate_image` tool |
-| **Organic brush strokes / paint textures** | ❌ No | Generate as an image asset — do NOT approximate with CSS gradients |
+| **Organic brush strokes / paint textures** | ❌ No | Generate as an image asset - do NOT approximate with CSS gradients |
 | **Marble / fluid / organic textures** | ❌ No | Generate as an image asset or use a high-quality stock match |
 | **3D renders** | ❌ No | Generate a matching render or use a placeholder with similar lighting/angle |
 | **Abstract art / mixed media** | ❌ No | Generate with `generate_image` describing the exact style, colors, and composition |
@@ -820,11 +820,11 @@ Walk through the reference and tag each visual element:
 
 ### → When the reference contains textured surfaces
 
-Marble, wood grain, concrete, fabric, water, clouds — these need real image assets:
+Marble, wood grain, concrete, fabric, water, clouds - these need real image assets:
 
 1. Generate the texture with `generate_image` describing the specific surface
 2. Apply as a `background-image` with appropriate `background-size`, `object-fit`, and positioning
-3. Match the scale — a zoomed-in marble texture looks different from a zoomed-out one
+3. Match the scale - a zoomed-in marble texture looks different from a zoomed-out one
 
 ### → Asset sizing and positioning
 
@@ -848,7 +848,7 @@ When placing generated image assets into the layout:
 }
 ```
 
-⚠ **Drift Warning:** This is the most common replication failure. When the AI cannot reproduce an artistic element, it substitutes a CSS pattern (stripes, gradients, solid blocks). This ALWAYS looks wrong because geometric CSS patterns have a fundamentally different visual quality than photographs or hand-drawn art. Always generate an image asset instead — even an imperfect generated image is closer to the reference than a CSS approximation.
+⚠ **Drift Warning:** This is the most common replication failure. When the AI cannot reproduce an artistic element, it substitutes a CSS pattern (stripes, gradients, solid blocks). This ALWAYS looks wrong because geometric CSS patterns have a fundamentally different visual quality than photographs or hand-drawn art. Always generate an image asset instead - even an imperfect generated image is closer to the reference than a CSS approximation.
 
 ---
 
@@ -872,10 +872,10 @@ When placing generated image assets into the layout:
 
 Some references show dynamic content (live chat, real user avatars, real-time data):
 1. Reproduce the visual appearance with static placeholder data
-2. Use realistic content — real-sounding names, organic numbers (not "John Doe" or "99.99%")
+2. Use realistic content - real-sounding names, organic numbers (not "John Doe" or "99.99%")
 3. Note which elements are placeholder in your delivery
 
-For artistic content (photographs, illustrations, textures), see the "Handling Artistic Assets" section above. Never approximate with CSS — always generate or source a real image.
+For artistic content (photographs, illustrations, textures), see the "Handling Artistic Assets" section above. Never approximate with CSS - always generate or source a real image.
 
 ### When multiple reference images are provided
 

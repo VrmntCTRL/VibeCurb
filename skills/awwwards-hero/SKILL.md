@@ -1,6 +1,6 @@
 ---
 name: awwwards-hero-section
-description: Hero-section pipeline for building Awwwards/FWA-tier hero sections. Extracts design direction from reference images, provides six hero architectures with implementation blueprints, and enforces the fundamentals that separate award-winning heroes from generic AI output — viewport-scale typography, single focal point, extreme whitespace, tight palette. Hero-only. Pair with other skills for full pages.
+description: Hero-section pipeline for building Awwwards/FWA-tier hero sections. Extracts design direction from reference images, provides six hero architectures with implementation blueprints, and enforces the fundamentals that separate award-winning heroes from generic AI output - viewport-scale typography, single focal point, extreme whitespace, tight palette. Hero-only. Pair with other skills for full pages.
 ---
 
 # Awwwards-Tier Hero Section
@@ -44,7 +44,7 @@ Before writing any code, extract design signals from the user's reference images
 | **Typography style** | Serif, sans-serif, or mixed. Massive or restrained. Uppercase or mixed-case. Tight-tracked or normal. Italic presence |
 | **Text-to-image relationship** | Text sits ABOVE image (layered)? BESIDE it (split)? BEHIND a subject (masked)? INSIDE it (clipped)? INTERTWINED with inline images between words? |
 | **Layout gravity** | Where does visual weight sit? Center? Bottom-left? Split across edges? Full-bleed? |
-| **Color count** | Count distinct hues — award-winning heroes almost always use 2-3 max |
+| **Color count** | Count distinct hues - award-winning heroes almost always use 2-3 max |
 | **Navigation style** | Floating pill? Flat horizontal? Split (logo left, links right)? Minimal (logo + menu only)? |
 | **Micro-details** | Rotating text badges, monospace metadata labels, glassmorphic cards, showreel links, CTA pill style |
 
@@ -99,7 +99,7 @@ The background visual uses `position: absolute; inset: 0` with `object-fit: cove
 
 *Best for: bold agency homepages, AI/tech product launches, statement brand pages*
 
-Massive heading on one side (usually left, occupying 55-65% width). Supporting content (subtext, CTA, or a visual asset) on the other side, vertically offset. The two halves do NOT align to the same baseline — deliberate vertical tension.
+Massive heading on one side (usually left, occupying 55-65% width). Supporting content (subtext, CTA, or a visual asset) on the other side, vertically offset. The two halves do NOT align to the same baseline - deliberate vertical tension.
 
 ```
 [viewport container: min-h-[100dvh], grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-end lg:items-center gap-8 lg:gap-0]
@@ -115,7 +115,7 @@ Use `items-end` on the left column and `items-start` on the right (or vice versa
 
 *Best for: athlete/personal brand sites, product photography heroes, editorial fashion or lifestyle*
 
-A full-viewport photograph or 3D render IS the hero. Typography is overlaid directly on the image — either at the top-left, bottom-left, or bleeding across the bottom edge. No separate "text area" — the image and text coexist in the same spatial plane.
+A full-viewport photograph or 3D render IS the hero. Typography is overlaid directly on the image - either at the top-left, bottom-left, or bleeding across the bottom edge. No separate "text area" - the image and text coexist in the same spatial plane.
 
 ```
 [viewport container: relative, min-h-[100dvh], overflow-hidden]
@@ -231,7 +231,7 @@ Before moving to Phase 3, confirm:
 
 Hero headings are not "big text." They are architectural elements that structure the entire viewport.
 
-**Font selection — pick ONE from the appropriate row:**
+**Font selection - pick ONE from the appropriate row:**
 
 | Vibe | Strong candidates (pick one) |
 |---|---|
@@ -240,14 +240,14 @@ Hero headings are not "big text." They are architectural elements that structure
 | Editorial / luxury | `PP Editorial New`, `GT Sectra Display`, `Canela`, `Reckless Neue` (serif only when reference shows serif) |
 | Condensed / industrial | `Bebas Neue`, `Oswald`, `Barlow Condensed`, `Archivo Black` |
 
-⚠ **Drift Warning:** `Inter`, `Roboto`, `Open Sans`, `Poppins`, `Arial`, and `Helvetica` are body fonts, not display fonts. Using them as a hero heading font produces generic output regardless of how good the layout is. If the reference uses one of these, verify carefully — at hero scale, Inter and Geist look nearly identical, and Geist is the display-grade choice.
+⚠ **Drift Warning:** `Inter`, `Roboto`, `Open Sans`, `Poppins`, `Arial`, and `Helvetica` are body fonts, not display fonts. Using them as a hero heading font produces generic output regardless of how good the layout is. If the reference uses one of these, verify carefully - at hero scale, Inter and Geist look nearly identical, and Geist is the display-grade choice.
 
 **Heading CSS blueprint:**
 
 ```css
 /* BLUEPRINT: Hero heading
    WHY: clamp() makes the heading responsive without breakpoints.
-   Negative letter-spacing is critical at large sizes — positive
+   Negative letter-spacing is critical at large sizes - positive
    tracking on massive text creates a loose, amateurish feel.
    line-height below 1.0 lets ascenders and descenders overlap
    slightly, which looks intentional at display scale. */
@@ -280,7 +280,7 @@ Hero headings are not "big text." They are architectural elements that structure
 
 ### → Palette
 
-Maximum 3 hues in the hero. This is not a suggestion — it is what separates award-winning heroes from busy ones.
+Maximum 3 hues in the hero. This is not a suggestion - it is what separates award-winning heroes from busy ones.
 
 **Dark hero palette:**
 ```css
@@ -298,8 +298,8 @@ Maximum 3 hues in the hero. This is not a suggestion — it is what separates aw
 **Light hero palette:**
 ```css
 .hero-light {
-  background: #FAFAF9; /* or #F5F5F0 or #FDFBF7 — warm cream, not pure white */
-  color: #1a1a1a;      /* or #111111 — near-black, not pure black */
+  background: #FAFAF9; /* or #F5F5F0 or #FDFBF7 - warm cream, not pure white */
+  color: #1a1a1a;      /* or #111111 - near-black, not pure black */
   /* Accent: one considered hue */
 }
 ```
@@ -312,7 +312,7 @@ Maximum 3 hues in the hero. This is not a suggestion — it is what separates aw
 
 Do not use flat `bg-black` or flat `bg-white`. Heroes need depth.
 
-**Dark mode — radial ambient glow:**
+**Dark mode - radial ambient glow:**
 ```css
 /* BLUEPRINT: Ambient glow
    WHY: A barely-visible radial gradient centered slightly 
@@ -346,7 +346,7 @@ Do not use flat `bg-black` or flat `bg-white`. Heroes need depth.
 }
 ```
 
-**Light mode — subtle warm radial:**
+**Light mode - subtle warm radial:**
 ```css
 .hero-light {
   background: radial-gradient(ellipse at 30% 20%, rgba(250,235,215,0.4) 0%, transparent 50%), #FAFAF9;
@@ -475,8 +475,8 @@ Every architecture MUST degrade cleanly below `768px`.
 | Animate ONLY `transform` and `opacity` | These are GPU-composited. Animating `top`, `left`, `width`, `height` triggers layout recalculation on every frame |
 | `will-change: transform` only on actively animating elements | Overusing `will-change` wastes GPU memory. Remove after animation completes |
 | `backdrop-filter: blur()` only on fixed/sticky elements | Applying blur to scrolling hero backgrounds tanks frame rate |
-| Hero image uses `loading="eager"` (or `priority` in Next.js) | The hero image is above-the-fold — lazy loading causes LCP failure |
-| Noise/grain on `position: fixed` pseudo-element | Never on a scrolling container — it repaints on every frame |
+| Hero image uses `loading="eager"` (or `priority` in Next.js) | The hero image is above-the-fold - lazy loading causes LCP failure |
+| Noise/grain on `position: fixed` pseudo-element | Never on a scrolling container - it repaints on every frame |
 | Gate ALL animations behind `prefers-reduced-motion` | Use Motion's `useReducedMotion()` or CSS `@media (prefers-reduced-motion: reduce)` |
 
 ---
@@ -527,7 +527,7 @@ Compare your hero against the reference (or against the Hero Extraction if no re
 | Check | PASS/FAIL |
 |---|---|
 | Max 3 distinct hues in the entire hero | |
-| Background has atmosphere (grain, glow, warm tint) — not flat `bg-black` or `bg-white` | |
+| Background has atmosphere (grain, glow, warm tint) - not flat `bg-black` or `bg-white` | |
 | No AI-purple/blue gradient backgrounds | |
 | No neon accents, no mesh blobs, no rainbow | |
 
@@ -566,7 +566,7 @@ Compare your hero against the reference (or against the Hero Extraction if no re
 | Check | PASS/FAIL |
 |---|---|
 | No AI copywriting cliches ("Elevate", "Seamless", "Unleash", "Next-Gen", "Revolutionize") | |
-| No em-dashes — use periods, commas, or colons | |
+| No em-dashes - use periods, commas, or colons | |
 | No placeholder images using generic stock (use `picsum.photos/seed/{keyword}/{w}/{h}`) | |
 | The hero would not look out of place on awwwards.com | |
 
@@ -580,7 +580,7 @@ These are the fundamentals that separate award-winning heroes from generic AI ou
 
 > **Viewport-scale typography.** Hero headings are architectural elements, not "big text." Minimum `clamp(2.5rem, 7vw, 8rem)`. For 1-3 word headings: `clamp(4rem, 12vw, 15rem)`. Tight tracking. Compressed line-height.
 
-> **Extreme whitespace.** The background is not wasted space — it IS the design. Content vertically centered via flex/grid, not pushed to the top with excessive padding.
+> **Extreme whitespace.** The background is not wasted space - it IS the design. Content vertically centered via flex/grid, not pushed to the top with excessive padding.
 
 > **Tight palette.** Max 3 hues. Dark heroes: off-black + white + one accent. Light heroes: warm cream + near-black + one accent. More than one saturated accent destroys focus.
 

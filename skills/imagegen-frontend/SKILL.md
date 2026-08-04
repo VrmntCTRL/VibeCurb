@@ -1,15 +1,15 @@
 ---
 name: imagegen-frontend-web
-description: Elite frontend image-direction skill for generating premium, conversion-aware website design reference images via ChatGPT image generation. Fires when the user asks to generate website mockups, landing page concepts, section design references, or UI comp images. Enforces ONE separate horizontal image PER section, composition variety (bans the default left-text/right-image on every section), background-image freedom, varied CTAs, varied hero scales, narrative concept spine, second-read moments, and a single consistent palette across all images. Outputs structured prompt blueprints that produce Awwwards-tier visual references a developer or coding model can accurately recreate. Image generation only — does not write code.
+description: Elite frontend image-direction skill for generating premium, conversion-aware website design reference images via ChatGPT image generation. Fires when the user asks to generate website mockups, landing page concepts, section design references, or UI comp images. Enforces ONE separate horizontal image PER section, composition variety (bans the default left-text/right-image on every section), background-image freedom, varied CTAs, varied hero scales, narrative concept spine, second-read moments, and a single consistent palette across all images. Outputs structured prompt blueprints that produce Awwwards-tier visual references a developer or coding model can accurately recreate. Image generation only - does not write code.
 ---
 
 # Elite Frontend Image Art Direction
 
-> This skill fires when the user asks to generate website design reference images, landing page mockups, section comp images, UI concept visuals, or any image that will serve as a frontend design reference. You are an art director, not an illustrator. Every image you generate must be a structured, premium, implementation-friendly website section that a developer could look at and code. This skill does NOT write code — it produces the visual references that feed into the pixel-perfect, hero, and motion skills.
+> This skill fires when the user asks to generate website design reference images, landing page mockups, section comp images, UI concept visuals, or any image that will serve as a frontend design reference. You are an art director, not an illustrator. Every image you generate must be a structured, premium, implementation-friendly website section that a developer could look at and code. This skill does NOT write code - it produces the visual references that feed into the pixel-perfect, hero, and motion skills.
 
 ---
 
-## The Hard Output Rule — Read First
+## The Hard Output Rule - Read First
 
 **Generate ONE separate horizontal image PER section. Always. No exceptions.**
 
@@ -24,7 +24,7 @@ description: Elite frontend image-direction skill for generating premium, conver
 
 Each image is one section, generated as its own image call. Never combine multiple sections into one tall frame. Never return a single image containing the whole page.
 
-If you can only render one image at a time, output them sequentially — announce each one: *"Section 1 of 8: Hero"*, *"Section 2 of 8: Trust bar"*, etc.
+If you can only render one image at a time, output them sequentially - announce each one: *"Section 1 of 8: Hero"*, *"Section 2 of 8: Trust bar"*, etc.
 
 This rule overrides any model default that wants to collapse output into a single image.
 
@@ -77,7 +77,7 @@ Before generating any image, internalize these. They override every aesthetic pr
 
 > **Whitespace is a design material.** Sections must breathe. The default AI instinct is to pack every pixel with content. Fight it. Generous negative space between elements is what separates premium from busy. Bias toward slightly more whitespace than you think is necessary.
 
-> **Conversion awareness.** Every section has a job — hook, prove, educate, or convert. The page must flow as a persuasion sequence, not a random collection of pretty sections. Even purely visual references should imply where the user's eye goes and what action they should take.
+> **Conversion awareness.** Every section has a job - hook, prove, educate, or convert. The page must flow as a persuasion sequence, not a random collection of pretty sections. Even purely visual references should imply where the user's eye goes and what action they should take.
 
 ---
 
@@ -91,7 +91,7 @@ Before generating anything, extract design signals from the user's request. Do n
 |---|---|
 | **Brand type** | SaaS / Agency / E-commerce / Portfolio / Editorial / Fintech / Health / AI / Crypto / Personal brand / Nonprofit |
 | **Mood keywords** | Clean, bold, cinematic, minimal, editorial, premium, luxury, playful, dark, light, warm, cold, technical, organic |
-| **Density preference** | Airy / balanced / packed — infer from "minimal" vs "feature-rich" vs "content-heavy" |
+| **Density preference** | Airy / balanced / packed - infer from "minimal" vs "feature-rich" vs "content-heavy" |
 | **Image preference** | Photography-led / illustration-led / typography-led / product-focused / abstract |
 | **Target audience** | Developer tools / Consumer / Enterprise / Creative professional / Luxury consumer |
 | **Explicit constraints** | Specific colors mentioned, specific fonts mentioned, dark/light mode specified, specific section requests |
@@ -120,7 +120,7 @@ Read the brief. Then bias your picks:
 
 ### → If the brief is vague
 
-Ask exactly ONE question: *"What's the brand name, one-line value prop, and preferred mood — closer to [dark cinematic] or [light editorial]?"*
+Ask exactly ONE question: *"What's the brand name, one-line value prop, and preferred mood - closer to [dark cinematic] or [light editorial]?"*
 
 If you can infer from context (e.g., user said "AI startup" or "luxury agency"), skip the question and declare your Direction Brief.
 
@@ -138,7 +138,7 @@ Before moving to Phase 2, confirm:
 
 This is the engine that prevents repetitive AI output. For each category below, commit to ONE option based on the brief. Do not blend. Do not hedge. Pick and commit.
 
-The picks must be internally consistent — a "Quiet Premium Neutral" theme with "Monument-like compressed statement typography" is a valid pairing. A "Pristine Light Mode" theme with a "Deep Dark Mode" background character is not.
+The picks must be internally consistent - a "Quiet Premium Neutral" theme with "Monument-like compressed statement typography" is a valid pairing. A "Pristine Light Mode" theme with a "Deep Dark Mode" background character is not.
 
 ---
 
@@ -146,10 +146,10 @@ The picks must be internally consistent — a "Quiet Premium Neutral" theme with
 
 | # | Theme | When to use |
 |---|---|---|
-| 1 | **Pristine Light Mode** — Off-white / cream / paper tones, sharp dark text, editorial confidence | Clean SaaS, editorial, health, lifestyle |
-| 2 | **Deep Dark Mode** — Charcoal / graphite / zinc, elegant glow only when justified | Dev tools, AI/ML, gaming, cinematic |
-| 3 | **Bold Studio Solid** — Strong controlled color fields (oxblood, royal blue, forest, vermilion, emerald) with crisp contrasting UI | Agency, creative studio, brand-forward |
-| 4 | **Quiet Premium Neutral** — Bone, sand, taupe, stone, smoke, muted contrast, restrained luxury | Luxury, finance, architecture, fashion |
+| 1 | **Pristine Light Mode** - Off-white / cream / paper tones, sharp dark text, editorial confidence | Clean SaaS, editorial, health, lifestyle |
+| 2 | **Deep Dark Mode** - Charcoal / graphite / zinc, elegant glow only when justified | Dev tools, AI/ML, gaming, cinematic |
+| 3 | **Bold Studio Solid** - Strong controlled color fields (oxblood, royal blue, forest, vermilion, emerald) with crisp contrasting UI | Agency, creative studio, brand-forward |
+| 4 | **Quiet Premium Neutral** - Bone, sand, taupe, stone, smoke, muted contrast, restrained luxury | Luxury, finance, architecture, fashion |
 
 ### → Background Character (pick 1 global default)
 
@@ -177,24 +177,24 @@ The picks must be internally consistent — a "Quiet Premium Neutral" theme with
 
 | # | Architecture | Best for |
 |---|---|---|
-| 1 | **Cinematic Centered Minimalist** — Heading centered, cinematic visual fills background or floats behind text | Dark cinematic, immersive product launches |
-| 2 | **Asymmetric Split** — Massive heading one side, supporting content other side, deliberate vertical tension | Bold agency, AI/tech launches |
-| 3 | **Full-Bleed Subject** — Full-viewport photograph IS the hero, typography overlaid directly | Athlete/personal brand, fashion, lifestyle |
-| 4 | **Typographic Poster** — Typography IS the visual, no hero image, viewport-bleeding scale | Creative studio, personal brand, editorial |
-| 5 | **Editorial Offset** — Off-grid composition, asymmetric pulls, text and image not conventionally aligned | Magazine, editorial, art-directed brand |
-| 6 | **Massive Image-First** — Photograph dominates, restrained text anchors a corner or edge | Product photography, luxury, e-commerce |
+| 1 | **Cinematic Centered Minimalist** - Heading centered, cinematic visual fills background or floats behind text | Dark cinematic, immersive product launches |
+| 2 | **Asymmetric Split** - Massive heading one side, supporting content other side, deliberate vertical tension | Bold agency, AI/tech launches |
+| 3 | **Full-Bleed Subject** - Full-viewport photograph IS the hero, typography overlaid directly | Athlete/personal brand, fashion, lifestyle |
+| 4 | **Typographic Poster** - Typography IS the visual, no hero image, viewport-bleeding scale | Creative studio, personal brand, editorial |
+| 5 | **Editorial Offset** - Off-grid composition, asymmetric pulls, text and image not conventionally aligned | Magazine, editorial, art-directed brand |
+| 6 | **Massive Image-First** - Photograph dominates, restrained text anchors a corner or edge | Product photography, luxury, e-commerce |
 
-⚠ **Drift Warning:** The left-text / right-image hero is the most overused AI image generation pattern. It is allowed but should NOT be your first instinct. Before reaching for it, consider: centered over background image, bottom-left over image, top-left lead, stacked center, image-as-canvas, off-grid editorial. Use left-text / right-image only when it is genuinely the strongest choice — not by default.
+⚠ **Drift Warning:** The left-text / right-image hero is the most overused AI image generation pattern. It is allowed but should NOT be your first instinct. Before reaching for it, consider: centered over background image, bottom-left over image, top-left lead, stacked center, image-as-canvas, off-grid editorial. Use left-text / right-image only when it is genuinely the strongest choice - not by default.
 
 ### → Hero Scale (pick 1)
 
 | Scale | Character |
 |---|---|
-| **Giant Statement** — Massive type, large image, dominant first viewport | Cinematic, atmospheric, brand-forward |
-| **Mid Editorial** — Balanced type/image, cinematic but not screen-filling | SaaS, product, professional |
-| **Mini Minimalist** — Tiny logo + short statement + thin CTA, lots of negative space | Confident restraint, luxury, swiss |
+| **Giant Statement** - Massive type, large image, dominant first viewport | Cinematic, atmospheric, brand-forward |
+| **Mid Editorial** - Balanced type/image, cinematic but not screen-filling | SaaS, product, professional |
+| **Mini Minimalist** - Tiny logo + short statement + thin CTA, lots of negative space | Confident restraint, luxury, swiss |
 
-Mini does not mean weak — it means confident restraint.
+Mini does not mean weak - it means confident restraint.
 
 ### → Section System (pick 1 dominant structure)
 
@@ -217,8 +217,8 @@ Each section picks 1 anchor. Across the site, **at least 3 different anchors mus
 | **Top-left lead, support bottom-right** | Reading-order diagonal flow |
 | **Bottom-left text over background image** | Cinematic, editorial overlap |
 | **Bottom-right CTA cluster** | Conversion-focused terminal anchor |
-| **Left-third caption + right-two-thirds visual** | Classic split — use sparingly, never twice in a row |
-| **Right-third caption + left-two-thirds visual** | Inverted classic — same rules |
+| **Left-third caption + right-two-thirds visual** | Classic split - use sparingly, never twice in a row |
+| **Right-third caption + left-two-thirds visual** | Inverted classic - same rules |
 | **Centered low** | Text in lower 40% over hero image, dramatic negative space above |
 | **Off-grid editorial offset** | Asymmetric pull, text and image deliberately misaligned |
 | **Stacked center** | Label / headline / sub / CTA all centered, ultra minimalist |
@@ -226,7 +226,7 @@ Each section picks 1 anchor. Across the site, **at least 3 different anchors mus
 
 ### → Background Mode (assign 1 per section)
 
-Pick 1 per section. Vary across the page — never all the same mode. Backgrounds are a primary design tool, not a risk.
+Pick 1 per section. Vary across the page - never all the same mode. Backgrounds are a primary design tool, not a risk.
 
 | Mode | Description |
 |---|---|
@@ -307,7 +307,7 @@ One unobvious but legible motif, placed deliberately once across the page. It re
 |---|---|
 | **Asymmetric bleed** | One element deliberately breaks the grid but respects hierarchy |
 | **Oversized punctuation/numeral** | A single massive character serves structural purpose |
-| **Unexpected material switch** | Paper vs gloss vs metal accent — one section shifts texture |
+| **Unexpected material switch** | Paper vs gloss vs metal accent - one section shifts texture |
 | **Narrow vertical side-rail** | Editorial note style, a column of secondary info |
 | **Macro crop** | A detail crop carries brand color naturally, not a full image |
 
@@ -335,10 +335,10 @@ Each section gets its own structured prompt built from the Phase 2 picks. This i
 
 ### → The Prompt Blueprint
 
-Every section prompt follows this structure. Fill in every field — skipping fields produces generic output.
+Every section prompt follows this structure. Fill in every field - skipping fields produces generic output.
 
 ```
-PROMPT BLUEPRINT — Section [N] of [Total]: [Section Name]
+PROMPT BLUEPRINT - Section [N] of [Total]: [Section Name]
 ─────────────────────────────────────────────────────────
 
 FRAME:
@@ -347,12 +347,12 @@ FRAME:
   Render style: [photorealistic UI mockup / flat design comp / editorial layout]
 
 COMPOSITION:
-  Anchor: [from Phase 2 — e.g., "centered statement" or "bottom-left over background"]
-  Visual weight: [where the eye lands first — e.g., "center-left, massive heading"]
-  Reading flow: [how the eye moves — e.g., "heading → subtext → CTA → background visual"]
+  Anchor: [from Phase 2 - e.g., "centered statement" or "bottom-left over background"]
+  Visual weight: [where the eye lands first - e.g., "center-left, massive heading"]
+  Reading flow: [how the eye moves - e.g., "heading → subtext → CTA → background visual"]
 
 TYPOGRAPHY:
-  Heading: [exact description — e.g., "massive compressed sans-serif, all-caps,
+  Heading: [exact description - e.g., "massive compressed sans-serif, all-caps,
             approximately 80pt equivalent, tight letter-spacing, 2 lines max"]
   Subtext: [e.g., "16pt equivalent, regular weight, muted color, max 20 words,
             1.5 line-height"]
@@ -360,20 +360,20 @@ TYPOGRAPHY:
   CTA text: [e.g., "14pt, medium weight, uppercase, inside pill button"]
 
 PALETTE:
-  Background: [exact description — e.g., "#0a0a0a deep charcoal with subtle
+  Background: [exact description - e.g., "#0a0a0a deep charcoal with subtle
                radial glow from center"]
   Text primary: [e.g., "#f5f5f5 warm off-white"]
   Text secondary: [e.g., "rgba(255,255,255,0.5) muted"]
-  Accent: [e.g., "#E8A04A warm amber — used on CTA only"]
+  Accent: [e.g., "#E8A04A warm amber - used on CTA only"]
 
 BACKGROUND MODE:
-  [from Phase 2 — e.g., "full-bleed cinematic photograph of server rack room,
+  [from Phase 2 - e.g., "full-bleed cinematic photograph of server rack room,
    cool blue-teal color grade, 40% dark overlay for text readability"]
 
 CTA:
-  Style: [from Phase 2 — e.g., "solid pill, amber background, dark text"]
+  Style: [from Phase 2 - e.g., "solid pill, amber background, dark text"]
   Placement: [e.g., "centered below subtext, 32px gap"]
-  Count: [1 — never more in a hero]
+  Count: [1 - never more in a hero]
 
 ATMOSPHERE:
   [e.g., "subtle film grain overlay at 3% opacity, soft radial ambient glow
@@ -386,11 +386,11 @@ CONTENT (placeholder text):
   CTA: [e.g., "Get Started →"]
 
 WHAT THIS IS NOT:
-  [Explicit anti-patterns — e.g., "NOT a generic dark hero with purple AI glow.
+  [Explicit anti-patterns - e.g., "NOT a generic dark hero with purple AI glow.
    NOT a dashboard screenshot. NOT centered text over a gradient blob."]
 
 MOTION IMPLIED:
-  [from Phase 2 — e.g., "staggered float-up energy: the heading, subtext, and
+  [from Phase 2 - e.g., "staggered float-up energy: the heading, subtext, and
    CTA appear at slightly different vertical offsets as if mid-cascade"]
 ```
 
@@ -401,13 +401,13 @@ These are the patterns AI image generation collapses into. Every prompt must exp
 | Banned Pattern | Why it's banned | What to say instead |
 |---|---|---|
 | **Purple/blue AI gradient hero** | Every AI-generated "tech" image defaults to this. It screams "generated." | Specify the exact palette from Phase 2. Add "no purple, no blue gradient backgrounds." |
-| **Floating translucent blobs** | The AI's version of "atmosphere" — meaningless glass orbs floating in space | Specify concrete atmosphere: grain, radial glow, tonal gradient, or photographic background |
+| **Floating translucent blobs** | The AI's version of "atmosphere" - meaningless glass orbs floating in space | Specify concrete atmosphere: grain, radial glow, tonal gradient, or photographic background |
 | **Generic dashboard card grid** | AI loves generating 6-8 identical cards with line charts | Specify the exact component from Phase 2's signature set. Describe its unique geometry |
 | **Centered text over gradient** | Safe, generic, says nothing about the brand | Specify the exact composition anchor from Phase 2. Force an asymmetric or editorial layout |
 | **"Luxury" = beige serif on cream** | The AI's entire luxury vocabulary | Specify the actual luxury signals: restrained spacing, tactile texture, considered typography weight |
 | **"Creative" = messy and unreadable** | Chaos ≠ creativity | Specify structured asymmetry: deliberate off-grid placement with clear reading order |
 | **Tiny illegible text** | AI generates decorative text that no one can read | Specify minimum type scale: "heading must be legible and dominant, minimum 60pt equivalent" |
-| **Identical section layouts** | Every section looks the same — same split, same proportion | Use the composition anchor assignments from Phase 2 — each section has a different anchor |
+| **Identical section layouts** | Every section looks the same - same split, same proportion | Use the composition anchor assignments from Phase 2 - each section has a different anchor |
 | **Stock photo energy** | Generic business people shaking hands, laptop on desk | Specify the exact photographic direction: subject, color grade, mood, crop style |
 
 ⚠ **Drift Warning:** The single most impactful thing you can add to any prompt is the "WHAT THIS IS NOT" section. AI models are as responsive to negative constraints as positive ones. Telling the model "NOT a purple gradient hero, NOT floating blobs, NOT a generic dashboard" eliminates 80% of default AI output.
@@ -418,14 +418,14 @@ Different sections have different jobs. Use these section blueprints to ensure e
 
 **Section: Hero**
 ```
-PURPOSE: Hook — the first thing the user sees. Must create an instant
+PURPOSE: Hook - the first thing the user sees. Must create an instant
          emotional response and communicate the brand's energy in < 3 seconds.
 
 MUST HAVE:
   - ONE dominant focal point (massive heading OR cinematic image, not both competing)
   - Brand name or product name visible
   - Single CTA (never two)
-  - Breathing room — the hero must NOT feel packed
+  - Breathing room - the hero must NOT feel packed
 
 MUST NOT HAVE:
   - Trust logos / "used by" badges (save for trust bar)
@@ -435,14 +435,14 @@ MUST NOT HAVE:
   - Version labels (v2.0, BETA) unless the brief is literally a product launch
 
 PROMPT ADDITION:
-  "This is a website hero section — the first viewport a user sees.
+  "This is a website hero section - the first viewport a user sees.
    It must feel premium, confident, and immediately communicate the brand.
    One focal point dominates. Generous whitespace. No clutter."
 ```
 
 **Section: Trust Bar**
 ```
-PURPOSE: Proof — immediately after the hero, establish credibility.
+PURPOSE: Proof - immediately after the hero, establish credibility.
 
 MUST HAVE:
   - Logo strip OR metric strip OR testimonial quote
@@ -451,13 +451,13 @@ MUST HAVE:
 
 PROMPT ADDITION:
   "This is a trust/social-proof bar. It should be visually quiet and
-   supportive — a thin horizontal strip of logos or a single powerful
+   supportive - a thin horizontal strip of logos or a single powerful
    metric. Not a full section, more like a divider with authority."
 ```
 
 **Section: Features / Benefits**
 ```
-PURPOSE: Interest — show what the product does and why it matters.
+PURPOSE: Interest - show what the product does and why it matters.
 
 MUST HAVE:
   - Clear visual hierarchy (section heading → feature items)
@@ -478,7 +478,7 @@ PROMPT ADDITION:
 
 **Section: Social Proof / Testimonials**
 ```
-PURPOSE: Desire — make the user want what others already have.
+PURPOSE: Desire - make the user want what others already have.
 
 MUST HAVE:
   - Real-looking names and avatar-style photos
@@ -493,7 +493,7 @@ PROMPT ADDITION:
 
 **Section: CTA / Conversion**
 ```
-PURPOSE: Action — the final push. High contrast, unmistakable action.
+PURPOSE: Action - the final push. High contrast, unmistakable action.
 
 MUST HAVE:
   - High-contrast background (inverted from the page's dominant mode)
@@ -503,14 +503,14 @@ MUST HAVE:
 
 PROMPT ADDITION:
   "This is the final conversion section. It should feel like a
-   decisive endpoint — high contrast, bold heading, unmistakable
+   decisive endpoint - high contrast, bold heading, unmistakable
    CTA button. If the page is light, this section goes dark (or
    uses the accent color as background). Maximum confidence."
 ```
 
 **Section: Footer**
 ```
-PURPOSE: Navigation + trust — the page's foundation.
+PURPOSE: Navigation + trust - the page's foundation.
 
 MUST HAVE:
   - Logo
@@ -520,7 +520,7 @@ MUST HAVE:
 
 PROMPT ADDITION:
   "This is a website footer. Clean, organized link columns with
-   a logo. Visually understated — it anchors the page without
+   a logo. Visually understated - it anchors the page without
    competing for attention. Dark or muted background."
 ```
 
@@ -547,10 +547,10 @@ Execute the prompts sequentially. One image per section.
 
 | Rule | Why |
 |---|---|
-| **Announce each section** before generating | *"Section 3 of 7: Features — Pristine Gapless Bento Grid with staggered float-up energy"* |
+| **Announce each section** before generating | *"Section 3 of 7: Features - Pristine Gapless Bento Grid with staggered float-up energy"* |
 | **Horizontal format, 16:9** | Website sections are landscape, not portrait |
-| **One section per image** | The Hard Output Rule — no exceptions |
-| **Include the full prompt blueprint** in the generation call | Do not summarize — the model needs every field |
+| **One section per image** | The Hard Output Rule - no exceptions |
+| **Include the full prompt blueprint** in the generation call | Do not summarize - the model needs every field |
 | **Verify palette consistency** before each generation | The accent color from section 1 must appear in section 5 |
 | **Adjust prompt if a generation drifts** | If image 3 comes back with a purple gradient, re-generate with stronger anti-pattern language |
 
@@ -559,28 +559,28 @@ Execute the prompts sequentially. One image per section.
 For a default landing page (6 sections), generate in this order:
 
 ```
-Section 1: Hero          — [Hook]
-Section 2: Trust Bar     — [Proof]
-Section 3: Features      — [Interest]
-Section 4: How It Works  — [Education]
-Section 5: Testimonials  — [Desire]
-Section 6: CTA + Footer  — [Action]
+Section 1: Hero          - [Hook]
+Section 2: Trust Bar     - [Proof]
+Section 3: Features      - [Interest]
+Section 4: How It Works  - [Education]
+Section 5: Testimonials  - [Desire]
+Section 6: CTA + Footer  - [Action]
 ```
 
 For a full website template (8 sections):
 
 ```
-Section 1: Hero          — [Hook]
-Section 2: Trust Bar     — [Proof]
-Section 3: Features      — [Interest]
-Section 4: How It Works  — [Education]
-Section 5: Showcase/Demo — [Demonstration]
-Section 6: Testimonials  — [Desire]
-Section 7: Pricing       — [Decision]
-Section 8: CTA + Footer  — [Action]
+Section 1: Hero          - [Hook]
+Section 2: Trust Bar     - [Proof]
+Section 3: Features      - [Interest]
+Section 4: How It Works  - [Education]
+Section 5: Showcase/Demo - [Demonstration]
+Section 6: Testimonials  - [Desire]
+Section 7: Pricing       - [Decision]
+Section 8: CTA + Footer  - [Action]
 ```
 
-Each section maps to a conversion stage. This is not arbitrary — the sequence follows AIDA (Attention → Interest → Desire → Action) with proof and education layers inserted for credibility.
+Each section maps to a conversion stage. This is not arbitrary - the sequence follows AIDA (Attention → Interest → Desire → Action) with proof and education layers inserted for credibility.
 
 ### ✓ Quality Gate: Generation
 
@@ -607,7 +607,7 @@ Compare the generated images against the Direction Brief from Phase 1 and the Ar
 | At least 3 different composition anchors appear across all sections | |
 | No two adjacent sections use the same anchor | |
 | The hero uses the assigned hero architecture (not a generic split) | |
-| No section feels "empty" or "packed" — whitespace is intentional | |
+| No section feels "empty" or "packed" - whitespace is intentional | |
 | Each section has a clear visual hierarchy (primary → secondary → tertiary) | |
 | Reading flow within each section is intuitive (eye knows where to go) | |
 
@@ -627,7 +627,7 @@ Compare the generated images against the Direction Brief from Phase 1 and the Ar
 | Check | PASS/FAIL |
 |---|---|
 | Heading typography feels consistent across all sections (same weight/family vibe) | |
-| Heading scale is viewport-dominant (not "big text" — architectural) | |
+| Heading scale is viewport-dominant (not "big text" - architectural) | |
 | No section has headings wrapping beyond 3 lines | |
 | Subtext is visually secondary (smaller, muted, constrained width) | |
 | No illegible text (everything is readable at the generated resolution) | |
@@ -637,12 +637,12 @@ Compare the generated images against the Direction Brief from Phase 1 and the Ar
 
 | Check | PASS/FAIL |
 |---|---|
-| Hero hooks — creates immediate emotional response | |
-| Trust bar proves — quiet authority, not competing with hero | |
-| Features inform — clear hierarchy, distinct items | |
-| Testimonials persuade — human, authentic, editorial | |
-| CTA converts — high contrast, unmistakable action | |
-| Footer grounds — structured, quiet, anchoring | |
+| Hero hooks - creates immediate emotional response | |
+| Trust bar proves - quiet authority, not competing with hero | |
+| Features inform - clear hierarchy, distinct items | |
+| Testimonials persuade - human, authentic, editorial | |
+| CTA converts - high contrast, unmistakable action | |
+| Footer grounds - structured, quiet, anchoring | |
 | The page flows as a persuasion sequence, not random sections | |
 
 ### AI Default Drift Diff
@@ -703,9 +703,9 @@ These are the fundamentals that separate premium design references from generic 
 
 > **One focal point per section.** Every section has ONE dominant visual element. Count elements competing for attention at the same scale. If the count exceeds 2, reduce until one clearly dominates.
 
-> **Viewport-scale typography.** Headings are architectural elements, not "big text." They should feel like they command the section. Minimum 60pt equivalent on desktop. For 1-3 word headings, go massive — 100pt+. Tight tracking. Compressed line-height.
+> **Viewport-scale typography.** Headings are architectural elements, not "big text." They should feel like they command the section. Minimum 60pt equivalent on desktop. For 1-3 word headings, go massive - 100pt+. Tight tracking. Compressed line-height.
 
-> **Extreme whitespace.** The background is not wasted space — it IS the design. Content lives in considered islands surrounded by intentional breathing room. If a section feels cramped, the spacing is wrong.
+> **Extreme whitespace.** The background is not wasted space - it IS the design. Content lives in considered islands surrounded by intentional breathing room. If a section feels cramped, the spacing is wrong.
 
 > **Tight palette, threaded consistently.** Maximum 3 hues across the entire page. Dark pages: off-black + warm white + one accent. Light pages: warm cream + near-black + one accent. The accent appears in CTAs and active states. Everything else is the base palette. More than one saturated accent across a page destroys visual cohesion.
 

@@ -1,15 +1,15 @@
 ---
 name: visual-redesign
-description: Surgical aesthetic upgrade pipeline for existing React codebases. Takes ugly, functional code (Bootstrap defaults, generic Tailwind, amateur CSS) and transforms it to Awwwards-tier quality WITHOUT touching or breaking the underlying JavaScript logic — states, effects, API calls, event handlers, routing, and data flow are sacred and untouchable. Audits the existing code across 7 layers (tokens, typography, spacing, color, components, atmosphere, motion), classifies every element as Sacred (JS logic — do not touch) or Slop (visual cruft — upgrade), then executes precise CSS-only surgery layer by layer. The skill that turns a developer's "make this look better" into a controlled, non-destructive visual transformation.
+description: Surgical aesthetic upgrade pipeline for existing React codebases. Takes ugly, functional code (Bootstrap defaults, generic Tailwind, amateur CSS) and transforms it to Awwwards-tier quality WITHOUT touching or breaking the underlying JavaScript logic - states, effects, API calls, event handlers, routing, and data flow are sacred and untouchable. Audits the existing code across 7 layers (tokens, typography, spacing, color, components, atmosphere, motion), classifies every element as Sacred (JS logic - do not touch) or Slop (visual cruft - upgrade), then executes precise CSS-only surgery layer by layer. The skill that turns a developer's "make this look better" into a controlled, non-destructive visual transformation.
 ---
 
 # Visual Redesign: Surgical Aesthetic Upgrade
 
-> This skill fires when the user provides existing React/HTML/CSS code and asks to make it look better, upgrade the design, improve the aesthetics, make it premium, give it an Awwwards feel, or any variation of "this works but looks terrible." The user's code is FUNCTIONAL — it has working state, API calls, event handlers, and business logic. Your job is to upgrade the visual layer without breaking any of it. You are a surgeon, not a demolition crew. Cut precisely. Leave the patient alive.
+> This skill fires when the user provides existing React/HTML/CSS code and asks to make it look better, upgrade the design, improve the aesthetics, make it premium, give it an Awwwards feel, or any variation of "this works but looks terrible." The user's code is FUNCTIONAL - it has working state, API calls, event handlers, and business logic. Your job is to upgrade the visual layer without breaking any of it. You are a surgeon, not a demolition crew. Cut precisely. Leave the patient alive.
 
 ---
 
-## The Sacred Rule — Read First
+## The Sacred Rule - Read First
 
 **JavaScript logic is sacred. You do not touch it. Ever.**
 
@@ -56,15 +56,15 @@ Some elements are both logic and style. Handle them with extreme care:
 
 | Element | Sacred or Slop? | Rule |
 |---|---|---|
-| `className={isActive ? 'active' : ''}` | **Both** — logic is sacred, class names are slop | Keep the ternary. Change only the class name values: `className={isActive ? 'nav-link--active' : 'nav-link'}` |
-| `style={{ display: isOpen ? 'block' : 'none' }}` | **Sacred** — this is conditional visibility logic | Do NOT replace with CSS classes. The inline style is driven by state. Leave it. Add your styles alongside it |
-| `{items.map((item) => <Card key={item.id} ... />)}` | **Sacred** — the map, key, and data flow are logic | Style the Card component's internals. Do not change the map structure or key assignment |
-| `ref={containerRef}` | **Sacred** — ref assignments drive JS behavior | Never remove, move, or rename refs |
-| `aria-*` attributes | **Sacred** — accessibility attributes are functional | Never remove. You may add missing ones |
-| `data-*` attributes | **Probably sacred** — often used by JS/tests | Never remove unless confirmed unused |
-| `id` attributes | **Probably sacred** — may be used by JS selectors | Never change unless confirmed unused |
-| `onClick={() => setOpen(!open)}` | **Sacred** — the handler is logic | Style the element. Do not touch the handler |
-| `<div>` that wraps conditional content | **Sacred** — the div may exist for rendering reasons | Do not remove "unnecessary" wrapper divs unless you've confirmed they're purely presentational |
+| `className={isActive ? 'active' : ''}` | **Both** - logic is sacred, class names are slop | Keep the ternary. Change only the class name values: `className={isActive ? 'nav-link--active' : 'nav-link'}` |
+| `style={{ display: isOpen ? 'block' : 'none' }}` | **Sacred** - this is conditional visibility logic | Do NOT replace with CSS classes. The inline style is driven by state. Leave it. Add your styles alongside it |
+| `{items.map((item) => <Card key={item.id} ... />)}` | **Sacred** - the map, key, and data flow are logic | Style the Card component's internals. Do not change the map structure or key assignment |
+| `ref={containerRef}` | **Sacred** - ref assignments drive JS behavior | Never remove, move, or rename refs |
+| `aria-*` attributes | **Sacred** - accessibility attributes are functional | Never remove. You may add missing ones |
+| `data-*` attributes | **Probably sacred** - often used by JS/tests | Never remove unless confirmed unused |
+| `id` attributes | **Probably sacred** - may be used by JS selectors | Never change unless confirmed unused |
+| `onClick={() => setOpen(!open)}` | **Sacred** - the handler is logic | Style the element. Do not touch the handler |
+| `<div>` that wraps conditional content | **Sacred** - the div may exist for rendering reasons | Do not remove "unnecessary" wrapper divs unless you've confirmed they're purely presentational |
 
 **The Golden Rule of the Gray Zone:** If you're unsure whether something is logic or style, leave it alone and add your styles alongside it. A slightly less elegant CSS solution that doesn't break the app is infinitely better than an elegant refactor that introduces bugs.
 
@@ -120,26 +120,26 @@ Before changing a single character, read the entire codebase. Understand what ex
 | `index.css` | Stylesheet | None (but may contain critical resets) | Everything | Low |
 
 **Risk levels:**
-- **Low** — Mostly presentational. Safe to restyle aggressively.
-- **Medium** — Mix of logic and presentation. Restyle carefully, test after.
-- **High** — Heavy logic intertwined with presentation. Touch only CSS classes and styles. Test every change.
+- **Low** - Mostly presentational. Safe to restyle aggressively.
+- **Medium** - Mix of logic and presentation. Restyle carefully, test after.
+- **High** - Heavy logic intertwined with presentation. Touch only CSS classes and styles. Test every change.
 
 ### → Identify the Aesthetic Crimes
 
-Walk through the UI and catalog every visual problem. Be specific — "looks bad" is not a diagnosis.
+Walk through the UI and catalog every visual problem. Be specific - "looks bad" is not a diagnosis.
 
 | Crime | Where | Severity | Example |
 |---|---|---|---|
 | **Generic font stack** | Global/body | Critical | `font-family: Arial, sans-serif` or browser default |
-| **Default shadows** | Cards, buttons | Major | `box-shadow: 0 2px 4px rgba(0,0,0,0.1)` — the Bootstrap default |
-| **Pure black text on pure white** | Everywhere | Major | `color: #000; background: #fff` — zero warmth, harsh contrast |
+| **Default shadows** | Cards, buttons | Major | `box-shadow: 0 2px 4px rgba(0,0,0,0.1)` - the Bootstrap default |
+| **Pure black text on pure white** | Everywhere | Major | `color: #000; background: #fff` - zero warmth, harsh contrast |
 | **Inconsistent spacing** | Between sections | Major | `margin-top: 20px` on one section, `margin-top: 50px` on the next |
-| **Bootstrap blue accent** | Buttons, links | Critical | `#0d6efd` — the single most recognizable "I didn't design this" signal |
-| **Generic border-radius** | Cards, buttons | Moderate | `border-radius: 4px` everywhere — no radius language |
-| **No entry animations** | Page load | Moderate | Elements just appear — static, lifeless mount |
+| **Bootstrap blue accent** | Buttons, links | Critical | `#0d6efd` - the single most recognizable "I didn't design this" signal |
+| **Generic border-radius** | Cards, buttons | Moderate | `border-radius: 4px` everywhere - no radius language |
+| **No entry animations** | Page load | Moderate | Elements just appear - static, lifeless mount |
 | **No hover states** | Buttons, cards, links | Major | Interactive elements give zero feedback |
 | **Cramped padding** | Cards, sections | Major | `padding: 16px` on a card that needs `32px` to breathe |
-| **No atmosphere** | Backgrounds | Moderate | Flat `background: white` or `background: #f5f5f5` — no depth |
+| **No atmosphere** | Backgrounds | Moderate | Flat `background: white` or `background: #f5f5f5` - no depth |
 | **Mixed radius languages** | Across components | Moderate | Buttons are `rounded-full` but cards are `rounded-sm` with no logic |
 | **Body font as heading font** | H1-H3 | Critical | Inter/Roboto/Arial at `font-size: 24px` pretending to be a display heading |
 | **No visual hierarchy** | Content sections | Major | Everything the same size, weight, and color |
@@ -149,7 +149,7 @@ Walk through the UI and catalog every visual problem. Be specific — "looks bad
 
 State in 3-5 lines what you found:
 
-> *"Audit Summary: React SPA with 8 components. Router, auth state, and 3 API calls are sacred — all in Dashboard.tsx and Header.tsx. The visual layer is Bootstrap 5 defaults across the board: #0d6efd blue accent, default shadows, Arial font stack, 4px radius on everything, no hover states, no entry animations, cramped 16px padding on cards, pure black-on-white text. No design system — spacing and colors are ad-hoc per component. Estimated crimes: 14 critical, 23 major. Risk: Medium overall, High on Dashboard.tsx (complex state + table rendering)."*
+> *"Audit Summary: React SPA with 8 components. Router, auth state, and 3 API calls are sacred - all in Dashboard.tsx and Header.tsx. The visual layer is Bootstrap 5 defaults across the board: #0d6efd blue accent, default shadows, Arial font stack, 4px radius on everything, no hover states, no entry animations, cramped 16px padding on cards, pure black-on-white text. No design system - spacing and colors are ad-hoc per component. Estimated crimes: 14 critical, 23 major. Risk: Medium overall, High on Dashboard.tsx (complex state + table rendering)."*
 
 ### ✓ Quality Gate: Audit
 
@@ -166,7 +166,7 @@ Before moving to Phase 2, confirm:
 
 ## Phase 2: Extraction
 
-Extract the current design decisions across 7 layers. This creates the "before" snapshot — the Slop Sheet.
+Extract the current design decisions across 7 layers. This creates the "before" snapshot - the Slop Sheet.
 
 ### → Layer 1: Tokens (Colors, Fonts, Spacing Scale)
 
@@ -198,7 +198,7 @@ Extract the current design decisions across 7 layers. This creates the "before" 
 | Small/caption | `font-size: 0.875rem` |
 | Button text | `font-size: 1rem; font-weight: 400` |
 | Letter-spacing | None set (browser default: normal) |
-| Line-height on headings | 1.2 (Bootstrap default — too loose for display) |
+| Line-height on headings | 1.2 (Bootstrap default - too loose for display) |
 | Text wrapping | No `text-wrap: balance` on headings |
 | Max-width on body text | None (text runs edge to edge) |
 
@@ -207,12 +207,12 @@ Extract the current design decisions across 7 layers. This creates the "before" 
 | Measurement | Current value (Slop) |
 |---|---|
 | Section padding | Inconsistent: `py-3`, `py-4`, `py-5`, random px values |
-| Card padding | `p-3` (12px) or `p-4` (16px) — cramped |
-| Grid gap | `gap-3` (12px) or `gap-4` (16px) — tight |
-| Heading → body gap | `mb-2` or `mb-3` — too tight |
-| Body → CTA gap | `mt-3` — too tight |
+| Card padding | `p-3` (12px) or `p-4` (16px) - cramped |
+| Grid gap | `gap-3` (12px) or `gap-4` (16px) - tight |
+| Heading → body gap | `mb-2` or `mb-3` - too tight |
+| Body → CTA gap | `mt-3` - too tight |
 | Nav height | `py-2` (short and cramped) or default Bootstrap nav height |
-| Component spacing | No consistent system — every component different |
+| Component spacing | No consistent system - every component different |
 
 ### → Layer 4: Color Usage
 
@@ -231,34 +231,34 @@ Extract the current design decisions across 7 layers. This creates the "before" 
 
 | Component | Current state (Slop) |
 |---|---|
-| Buttons | Bootstrap `.btn.btn-primary` — `#0d6efd`, `4px` radius, generic padding, no hover physics |
-| Cards | `.card` — `1px solid #dee2e6`, `4px` radius, default shadow or no shadow, cramped padding |
-| Inputs | Bootstrap form controls — `#dee2e6` border, no focus glow, no float labels |
-| Navigation | Bootstrap navbar — busy, cramped, default styling |
-| Tables | Bootstrap `.table` — zebra stripes, cramped rows, no refinement |
-| Modals | Bootstrap modal — generic overlay, no entry animation |
-| Badges/pills | Bootstrap `.badge` — small, cramped, primary blue |
-| Dropdowns | Bootstrap dropdown — generic shadow, no animation |
+| Buttons | Bootstrap `.btn.btn-primary` - `#0d6efd`, `4px` radius, generic padding, no hover physics |
+| Cards | `.card` - `1px solid #dee2e6`, `4px` radius, default shadow or no shadow, cramped padding |
+| Inputs | Bootstrap form controls - `#dee2e6` border, no focus glow, no float labels |
+| Navigation | Bootstrap navbar - busy, cramped, default styling |
+| Tables | Bootstrap `.table` - zebra stripes, cramped rows, no refinement |
+| Modals | Bootstrap modal - generic overlay, no entry animation |
+| Badges/pills | Bootstrap `.badge` - small, cramped, primary blue |
+| Dropdowns | Bootstrap dropdown - generic shadow, no animation |
 
 ### → Layer 6: Atmosphere
 
 | Property | Current state (Slop) |
 |---|---|
-| Background texture | None — flat solid color |
-| Ambient glow/gradient | None — completely flat |
+| Background texture | None - flat solid color |
+| Ambient glow/gradient | None - completely flat |
 | Grain/noise | None |
 | Frosted glass | None |
 | Depth system | Default Bootstrap shadow or none |
-| Visual warmth | Zero — cold and clinical |
+| Visual warmth | Zero - cold and clinical |
 
 ### → Layer 7: Motion
 
 | Property | Current state (Slop) |
 |---|---|
-| Page entry | None — static mount, everything appears instantly |
-| Scroll reveals | None — everything visible immediately |
+| Page entry | None - static mount, everything appears instantly |
+| Scroll reveals | None - everything visible immediately |
 | Hover transitions | `transition: all 0.15s ease-in-out` (Bootstrap default) or none |
-| Page transitions | None — instant swap |
+| Page transitions | None - instant swap |
 | Micro-interactions | None |
 | Loading states | Spinner or "Loading..." text |
 | Easing curves | `ease-in-out` CSS keyword or none |
@@ -275,12 +275,12 @@ Before moving to Phase 3, confirm:
 
 ## Phase 3: Prescription
 
-For every slop item extracted in Phase 2, prescribe the gold replacement. This is the transformation map — the surgical plan.
+For every slop item extracted in Phase 2, prescribe the gold replacement. This is the transformation map - the surgical plan.
 
 ### → Token Prescription
 
 ```css
-/* PRESCRIPTION: Design tokens — Slop → Gold
+/* PRESCRIPTION: Design tokens - Slop → Gold
    WHY: Tokens are the foundation. Changing these first
    means every component that references them upgrades
    automatically. This is the highest-leverage change. */
@@ -294,16 +294,16 @@ For every slop item extracted in Phase 2, prescribe the gold replacement. This i
      The difference is subtle but the eye registers it
      as "designed" vs "default." */
   --color-bg: #FAFAF9;        /* was: #ffffff */
-  --color-surface: #FFFFFF;    /* was: #f8f9fa — cards sit ON the bg */
-  --color-surface-2: #F5F4F2;  /* was: none — for alternating sections */
+  --color-surface: #FFFFFF;    /* was: #f8f9fa - cards sit ON the bg */
+  --color-surface-2: #F5F4F2;  /* was: none - for alternating sections */
 
   /* Text: #000000 → warm near-black
      WHY: Pure black on warm off-white creates a jarring
      temperature clash. Near-black (#1a1a1a) matches the
      warmth of the background and reduces eye strain. */
   --color-text: #1A1A1A;       /* was: #000000 or #212529 */
-  --color-text-2: #6B7280;     /* was: #6c757d — muted, for secondary */
-  --color-text-3: #9CA3AF;     /* was: none — for captions, placeholders */
+  --color-text-2: #6B7280;     /* was: #6c757d - muted, for secondary */
+  --color-text-3: #9CA3AF;     /* was: none - for captions, placeholders */
 
   /* Accent: #0d6efd → considered, non-Bootstrap hue
      WHY: Bootstrap blue is the single loudest "I didn't
@@ -334,7 +334,7 @@ For every slop item extracted in Phase 2, prescribe the gold replacement. This i
 
   /* Section spacing: random values → consistent scale
      WHY: A spacing system creates rhythm. Random spacing
-     creates visual noise — the eye detects inconsistency
+     creates visual noise - the eye detects inconsistency
      even when the brain can't articulate it. */
   --space-section: clamp(5rem, 10vw, 8rem); /* was: random py values */
   --space-element: 1.5rem;                  /* was: 0.75rem–1rem */
@@ -345,10 +345,10 @@ For every slop item extracted in Phase 2, prescribe the gold replacement. This i
   /* Radius: 4px everywhere → considered radius language
      WHY: A design system commits to a radius language.
      Pick ONE and apply consistently. */
-  --radius-sm: 8px;          /* was: 4px (Bootstrap) — inputs, badges */
-  --radius-md: 12px;         /* was: 4px — cards, containers */
-  --radius-lg: 16px;         /* was: 4px — modals, large cards */
-  --radius-full: 9999px;     /* was: 50% — pills, avatars */
+  --radius-sm: 8px;          /* was: 4px (Bootstrap) - inputs, badges */
+  --radius-md: 12px;         /* was: 4px - cards, containers */
+  --radius-lg: 16px;         /* was: 4px - modals, large cards */
+  --radius-full: 9999px;     /* was: 50% - pills, avatars */
 
   /* ── Easing ────────────────────────────────────── */
 
@@ -366,19 +366,19 @@ For every slop item extracted in Phase 2, prescribe the gold replacement. This i
 ### → Typography Prescription
 
 ```css
-/* PRESCRIPTION: Typography scale — Slop → Gold
+/* PRESCRIPTION: Typography scale - Slop → Gold
    WHY: The heading is the first thing the eye hits.
    A display font with tight tracking and compressed
    line-height immediately signals "designed." The body
    font stays readable with comfortable line-height. */
 
-/* Import the fonts — add to the top of your CSS or <head> */
+/* Import the fonts - add to the top of your CSS or <head> */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   letter-spacing: -0.03em;   /* was: normal (too loose at display size) */
-  line-height: 1.1;          /* was: 1.2 (Bootstrap) — tighten */
+  line-height: 1.1;          /* was: 1.2 (Bootstrap) - tighten */
   text-wrap: balance;        /* prevents ugly orphan lines */
   color: var(--color-text);
 }
@@ -403,13 +403,13 @@ h3 {
 body, p, span, li {
   font-family: var(--font-body);
   font-size: clamp(0.9375rem, 1.1vw, 1.0625rem); /* was: 1rem fixed */
-  line-height: 1.65;     /* was: 1.5 — slightly more generous */
+  line-height: 1.65;     /* was: 1.5 - slightly more generous */
   color: var(--color-text);
 }
 
-/* Body text max-width — prevent wall-to-wall text */
+/* Body text max-width - prevent wall-to-wall text */
 p {
-  max-width: 65ch;  /* was: none — text ran edge to edge */
+  max-width: 65ch;  /* was: none - text ran edge to edge */
 }
 
 /* Muted secondary text */
@@ -417,7 +417,7 @@ p {
   color: var(--color-text-2) !important; /* override Bootstrap's gray */
 }
 
-/* Eyebrow / label style — add where appropriate */
+/* Eyebrow / label style - add where appropriate */
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -431,7 +431,7 @@ p {
 ### → Component Prescription
 
 ```css
-/* PRESCRIPTION: Button — Bootstrap → Premium
+/* PRESCRIPTION: Button - Bootstrap → Premium
    WHY: The button is the most interactive element on the page.
    Its hover feel communicates the entire quality level of the site.
    A snappy cubic-bezier with a physical lift-and-shadow creates
@@ -443,8 +443,8 @@ p {
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  padding: 0.75rem 1.75rem;             /* was: py-2 px-3 — cramped */
-  border-radius: var(--radius-full);     /* was: 4px — now pill */
+  padding: 0.75rem 1.75rem;             /* was: py-2 px-3 - cramped */
+  border-radius: var(--radius-full);     /* was: 4px - now pill */
   border: none;
   cursor: pointer;
   transition:
@@ -490,12 +490,12 @@ p {
   background: rgba(0, 0, 0, 0.02);
 }
 
-/* PRESCRIPTION: Card — Bootstrap → Premium */
+/* PRESCRIPTION: Card - Bootstrap → Premium */
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);        /* was: 4px */
-  padding: var(--space-component);         /* was: 1rem — cramped */
+  padding: var(--space-component);         /* was: 1rem - cramped */
   box-shadow: none;                        /* was: default Bootstrap shadow */
   transition:
     transform 0.4s var(--ease-snap),
@@ -524,7 +524,7 @@ p {
   margin-bottom: var(--space-element);
 }
 
-/* PRESCRIPTION: Input — Bootstrap → Premium */
+/* PRESCRIPTION: Input - Bootstrap → Premium */
 .form-control,
 input[type="text"],
 input[type="email"],
@@ -533,7 +533,7 @@ textarea,
 select {
   font-family: var(--font-body);
   font-size: 0.9375rem;
-  padding: 0.75rem 1rem;                  /* was: py-1.5 px-3 — cramped */
+  padding: 0.75rem 1rem;                  /* was: py-1.5 px-3 - cramped */
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-surface);
@@ -552,7 +552,7 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.15);
 }
 
-/* PRESCRIPTION: Navigation — Bootstrap → Premium */
+/* PRESCRIPTION: Navigation - Bootstrap → Premium */
 .navbar, nav {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -596,7 +596,7 @@ select:focus {
   transform-origin: left;
 }
 
-/* PRESCRIPTION: Table — Bootstrap → Premium */
+/* PRESCRIPTION: Table - Bootstrap → Premium */
 .table, table {
   border-collapse: separate;
   border-spacing: 0;
@@ -626,7 +626,7 @@ select:focus {
   background: rgba(0, 0, 0, 0.015);
 }
 
-/* Kill Bootstrap zebra striping — it looks cheap */
+/* Kill Bootstrap zebra striping - it looks cheap */
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: transparent;
 }
@@ -635,7 +635,7 @@ select:focus {
 ### → Atmosphere Prescription
 
 ```css
-/* PRESCRIPTION: Atmosphere — Flat → Alive
+/* PRESCRIPTION: Atmosphere - Flat → Alive
    WHY: Flat backgrounds feel like nothing. A subtle
    radial gradient, grain texture, or warm tint gives
    the background depth without adding visual elements. */
@@ -647,7 +647,7 @@ body {
     var(--color-bg);
 }
 
-/* Noise grain overlay — felt, not seen */
+/* Noise grain overlay - felt, not seen */
 body::after {
   content: '';
   position: fixed;
@@ -658,7 +658,7 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
 }
 
-/* Section dividers — subtle border instead of hard lines */
+/* Section dividers - subtle border instead of hard lines */
 section + section {
   border-top: 1px solid var(--color-border);
 }
@@ -672,7 +672,7 @@ section:nth-child(even) {
 ### → Motion Prescription
 
 ```css
-/* PRESCRIPTION: Motion — Static → Alive
+/* PRESCRIPTION: Motion - Static → Alive
    WHY: Every element that appears without animation
    feels like the page is broken. A staggered fade-up
    with deblur signals that the page loaded intentionally. */
@@ -691,7 +691,7 @@ section:nth-child(even) {
   }
 }
 
-/* Apply to major elements — use inline style for stagger:
+/* Apply to major elements - use inline style for stagger:
    <h1 class="enter-up" style="--stagger: 0ms">
    <p class="enter-up" style="--stagger: 120ms">
    <button class="enter-up" style="--stagger: 240ms"> */
@@ -700,7 +700,7 @@ section:nth-child(even) {
   animation-delay: var(--stagger, 0ms);
 }
 
-/* Scroll reveal — elements below the fold */
+/* Scroll reveal - elements below the fold */
 [data-reveal] {
   opacity: 0;
   transform: translateY(30px);
@@ -714,7 +714,7 @@ section:nth-child(even) {
   transform: translateY(0);
 }
 
-/* Universal interactive transition — replaces Bootstrap's
+/* Universal interactive transition - replaces Bootstrap's
    transition: all 0.15s ease-in-out on EVERY interactive element */
 a, button, [role="button"],
 input, select, textarea,
@@ -747,10 +747,10 @@ input, select, textarea,
 ### → Scroll Reveal JavaScript (Non-Destructive)
 
 ```javascript
-/* PRESCRIPTION: Scroll reveal — add as a separate script
+/* PRESCRIPTION: Scroll reveal - add as a separate script
    WHY: This script observes [data-reveal] elements and
    adds .is-visible when they enter the viewport. It does
-   NOT modify any existing JS — it's a new, separate file
+   NOT modify any existing JS - it's a new, separate file
    that runs independently.
 
    Add to the end of the page or import in main entry. */
@@ -801,15 +801,15 @@ Before moving to Phase 4, confirm:
 
 ## Phase 4: Surgery
 
-Execute the prescriptions. This is the operating room. Follow the exact order below — each layer builds on the previous one.
+Execute the prescriptions. This is the operating room. Follow the exact order below - each layer builds on the previous one.
 
 ### → Surgical Order
 
 ```
-Layer 1: Tokens     (CSS custom properties — the foundation)
+Layer 1: Tokens     (CSS custom properties - the foundation)
 Layer 2: Typography (font imports + heading/body styles)
 Layer 3: Color      (replace all Bootstrap/generic color values)
-Layer 4: Spacing    (padding, margins, gaps — breathing room)
+Layer 4: Spacing    (padding, margins, gaps - breathing room)
 Layer 5: Components (buttons, cards, inputs, nav, tables)
 Layer 6: Atmosphere (grain, glow, section alternation)
 Layer 7: Motion     (entry animations, hover states, scroll reveals)
@@ -831,7 +831,7 @@ Layer 7: Motion     (entry animations, hover states, scroll reveals)
 The safest approach is a single new stylesheet loaded AFTER all existing stylesheets:
 
 ```css
-/* gold.css — loaded LAST in the cascade
+/* gold.css - loaded LAST in the cascade
    WHY: By loading after Bootstrap/existing CSS, our rules
    override the defaults without deleting any existing code.
    If something breaks, the user can remove this one import
@@ -841,7 +841,7 @@ The safest approach is a single new stylesheet loaded AFTER all existing stylesh
    import './gold.css'  // AFTER all other CSS imports */
 ```
 
-This file contains ALL prescriptions from Phase 3 — tokens, typography, components, atmosphere, motion — in one file that can be added or removed as a single unit.
+This file contains ALL prescriptions from Phase 3 - tokens, typography, components, atmosphere, motion - in one file that can be added or removed as a single unit.
 
 ⚠ **Drift Warning:** The temptation is to "clean up" the existing CSS by deleting Bootstrap imports or removing old stylesheets. Do NOT do this until the user has confirmed the gold override is working. The old CSS is a safety net. Remove it only after the patient is confirmed stable.
 
@@ -849,11 +849,11 @@ This file contains ALL prescriptions from Phase 3 — tokens, typography, compon
 
 For files marked **High** risk in the Audit Table:
 
-1. **Read the entire file first** — understand every state variable, effect, and handler
-2. **Map every className and style prop** — note which ones are referenced in JS logic
-3. **Change ONLY className string values** — the attribute stays, only the value changes
-4. **Never touch inline styles that reference state** — `style={{ display: isOpen ? 'block' : 'none' }}` is sacred
-5. **Test immediately after changes** — run the app, trigger every state change, submit every form, verify every API call
+1. **Read the entire file first** - understand every state variable, effect, and handler
+2. **Map every className and style prop** - note which ones are referenced in JS logic
+3. **Change ONLY className string values** - the attribute stays, only the value changes
+4. **Never touch inline styles that reference state** - `style={{ display: isOpen ? 'block' : 'none' }}` is sacred
+5. **Test immediately after changes** - run the app, trigger every state change, submit every form, verify every API call
 
 ```tsx
 /* EXAMPLE: Safe className surgery on a complex component
@@ -884,7 +884,7 @@ To add scroll reveal animations, add `data-reveal` attributes to existing JSX el
   {features.map(f => <FeatureCard key={f.id} {...f} />)}
 </section>
 
-/* AFTER — added data-reveal, nothing else changed: */
+/* AFTER - added data-reveal, nothing else changed: */
 <section className="features" data-reveal>
   <h2>Features</h2>
   {features.map(f => <FeatureCard key={f.id} {...f} />)}
@@ -903,7 +903,7 @@ To add scroll reveal animations, add `data-reveal` attributes to existing JSX el
 <p className="hero-subtext">The platform for modern teams.</p>
 <button className="btn btn-primary" onClick={handleSignup}>Get Started</button>
 
-/* AFTER — added enter-up class and stagger variable: */
+/* AFTER - added enter-up class and stagger variable: */
 <h1 className="hero-heading enter-up" style={{ '--stagger': '0ms' } as React.CSSProperties}>Build faster.</h1>
 <p className="hero-subtext enter-up" style={{ '--stagger': '120ms' } as React.CSSProperties}>The platform for modern teams.</p>
 <button className="btn btn-primary enter-up" style={{ '--stagger': '240ms' } as React.CSSProperties} onClick={handleSignup}>Get Started</button>
@@ -1013,7 +1013,7 @@ Verify the surgery was successful. Walk through every check. Any FAIL requires d
 
 ---
 
-## The Slop Catalog — Common Patterns and Their Cures
+## The Slop Catalog - Common Patterns and Their Cures
 
 Quick-reference for the most common aesthetic crimes. Look up the pattern, apply the cure.
 
@@ -1024,18 +1024,18 @@ Quick-reference for the most common aesthetic crimes. Look up the pattern, apply
 | `background: #0d6efd` | Bootstrap primary blue | Choose a brand-appropriate accent color |
 | `box-shadow: 0 2px 4px rgba(0,0,0,0.1)` | Generic default shadow | `box-shadow: 0 1px 3px rgba(0,0,0,0.04)` at rest, expand on hover |
 | `border-radius: 4px` | Bootstrap default radius | Commit to a radius language: 8/12/16/9999 |
-| `border: 1px solid #dee2e6` | Cool gray border | `border: 1px solid rgba(0,0,0,0.08)` — warm, subtle |
+| `border: 1px solid #dee2e6` | Cool gray border | `border: 1px solid rgba(0,0,0,0.08)` - warm, subtle |
 | `transition: all 0.15s ease-in-out` | Bootstrap default transition | `transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1)` |
-| `padding: 1rem` on a card | Cramped card padding | `padding: 2rem` minimum — cards need to breathe |
-| `margin-bottom: 0.5rem` heading→body | Cramped heading gap | `margin-bottom: 1.5rem` — let the heading land |
-| `gap: 1rem` in a card grid | Tight grid gap | `gap: 1.5rem` minimum — cards need separation |
+| `padding: 1rem` on a card | Cramped card padding | `padding: 2rem` minimum - cards need to breathe |
+| `margin-bottom: 0.5rem` heading→body | Cramped heading gap | `margin-bottom: 1.5rem` - let the heading land |
+| `gap: 1rem` in a card grid | Tight grid gap | `gap: 1.5rem` minimum - cards need separation |
 | No `:hover` on buttons | Dead, unresponsive buttons | `translateY(-2px) + shadow expansion + custom easing` |
 | No `:hover` on cards | Static, lifeless cards | `translateY(-4px) + shadow expansion + border glow` |
 | No entry animation | Instant static mount | Staggered fade-up-deblur on above-fold elements |
 | `h1 { font-size: 2rem }` | Undersized heading | `font-size: clamp(2.25rem, 5vw, 3.75rem)` |
-| `line-height: 1.2` on headings | Too loose for display | `line-height: 1.05` — tight, architectural |
-| No letter-spacing on headings | Loose, amateur tracking | `letter-spacing: -0.03em` — tighten |
-| `py-3` section padding | Cramped sections | `py-20 md:py-32` — sections are chapters, not paragraphs |
+| `line-height: 1.2` on headings | Too loose for display | `line-height: 1.05` - tight, architectural |
+| No letter-spacing on headings | Loose, amateur tracking | `letter-spacing: -0.03em` - tighten |
+| `py-3` section padding | Cramped sections | `py-20 md:py-32` - sections are chapters, not paragraphs |
 | Zebra-striped tables | 2010 Bootstrap energy | Kill stripes, add subtle hover row highlight |
 | `.badge { font-size: 0.75em }` | Tiny, cramped badges | `padding: 0.25rem 0.75rem; font-size: 0.75rem; border-radius: 9999px` |
 | No `::placeholder` styling on inputs | Default gray placeholder | `color: var(--color-text-3); opacity: 0.7` |
@@ -1049,7 +1049,7 @@ Quick-reference for the most common aesthetic crimes. Look up the pattern, apply
 1. Apply token prescriptions as a CSS custom property layer (`:root` variables)
 2. Override styled-component styles via a global `createGlobalStyle` that references the tokens
 3. For component-level overrides, add a `gold-overrides.ts` file with styled-component overrides
-4. Never modify the existing styled-component definitions inline — create override wrappers
+4. Never modify the existing styled-component definitions inline - create override wrappers
 
 ### When the code uses Tailwind CSS
 
@@ -1062,10 +1062,10 @@ Quick-reference for the most common aesthetic crimes. Look up the pattern, apply
 
 ### When the code uses Material UI / Chakra / Ant Design
 
-1. Override the theme provider configuration — these libraries are designed for theme customization
+1. Override the theme provider configuration - these libraries are designed for theme customization
 2. Focus on the theme object: colors, typography, spacing, radii, shadows
 3. Add component-level `sx` overrides or `styled()` wrappers for atmosphere and motion
-4. Never fight the component library's structure — work within its theming system
+4. Never fight the component library's structure - work within its theming system
 
 ### When the code is vanilla HTML/CSS (no framework)
 
@@ -1095,8 +1095,8 @@ Respect the user's scope. Upgrading more than asked wastes time and introduces r
 
 > **The gold.css is a single unit.** One file, loaded last, that contains the entire visual upgrade. The user can add it (upgrade) or remove it (revert) with a single import. This is the surgical philosophy: clean entry, clean exit.
 
-> **Warmth over neutrality.** Every premium design uses warm tones — off-white backgrounds, warm near-black text, warm gray borders. Cold neutrals (pure gray, pure white, pure black) feel clinical and undesigned. The fastest single upgrade is replacing the color temperature.
+> **Warmth over neutrality.** Every premium design uses warm tones - off-white backgrounds, warm near-black text, warm gray borders. Cold neutrals (pure gray, pure white, pure black) feel clinical and undesigned. The fastest single upgrade is replacing the color temperature.
 
-> **Spacing is the secret.** The single change that has the most dramatic impact is increasing spacing — section padding, card padding, heading gaps, grid gaps. Cramped spacing is the hallmark of amateur design. Generous spacing is the hallmark of premium design. When in doubt, add more space.
+> **Spacing is the secret.** The single change that has the most dramatic impact is increasing spacing - section padding, card padding, heading gaps, grid gaps. Cramped spacing is the hallmark of amateur design. Generous spacing is the hallmark of premium design. When in doubt, add more space.
 
 > **Display fonts separate amateurs from professionals.** Swapping the heading font from Arial/system-ui to a proper display font (Outfit, Satoshi, Cabinet Grotesk, Clash Display) is the highest-impact single change. Everything else builds on this foundation.
