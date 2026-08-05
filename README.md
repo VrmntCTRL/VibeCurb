@@ -11,7 +11,7 @@
 
 <br/>
 
-AI defaults to the mean. Models are trained on millions of average websites. If you don't constrain them, they will build you an average website.
+AI defaults to the mean. Models are trained on millions of average websites. If you don't constrain them, they will build an average website.
 
 **VibeCurb is the constraint.**
 
@@ -41,10 +41,12 @@ Different problems require different constraints. Load the specific skill pipeli
 | Skill | Category | What it does |
 | :--- | :--- | :--- |
 | `awwwards-hero` | Frontend | Generates an award-winning hero section from a brief or reference. Massive typography, tight palette, zero-slop layouts. |
-| `visual-redesign` | Frontend | Give the agent your ugly-but-functional React code and get back something that actually looks designed, without touching a line of JS. |
+| `visual-redesign` | Redesign | Give the agent your ugly-but-functional React code and get back something that actually looks designed, without touching a line of JS. |
 | `pixel-perfect` | Frontend | Hand the agent a screenshot of any website and get back an exact code replica. Every font, color, and spacing matched. |
 | `awwwards-motion` | Animations | Turns static layouts into something that moves like it's alive. Scroll reveals, kinetic typography, fluid micro-interactions tuned frame-by-frame. |
 | `imagegen-frontend` | Image Generation | Generates Awwwards-tier images, editorial photography, and textures that you can feed straight into your other skills as the reference brief. |
+| `awwwards-sections` | Frontend | Builds out pricing cards, bento grids, and footers to perfectly match the hero aesthetic instead of just top-of-page stuff. |
+| `brandkit-gen` | Image Generation | Forces the agent to create cohesive brandkits and logo designs before building the UI. |
 
 ---
 
