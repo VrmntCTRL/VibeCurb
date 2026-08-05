@@ -98,10 +98,14 @@ I want it to look <final vibe reinforcement>. Generate the <deliverable>.
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/bec44fd6-f100-4a94-a586-441d3e58acaa" width="48%" />
-  <img src="https://github.com/user-attachments/assets/af20dbab-49e6-42cf-acdc-3408b90ffb70" width="48%" />
+  <img src="https://github.com/user-attachments/assets/8a5ec789-70e8-4b82-98bf-62b5a5a0f728" width="48%" />
   <br/><br/>
   <img src="https://github.com/user-attachments/assets/a5f05877-77af-484b-a025-3d6795fb2717" width="48%" />
   <img src="https://github.com/user-attachments/assets/b908ad4c-f974-4e9a-bbf6-fd4a9b4819ed" width="48%" />
+  <br/><br/>
+  <img src="https://github.com/user-attachments/assets/46fd72c4-532d-472e-86a9-c4f7d229fcbf" width="48%" />
+  <img src="https://github.com/user-attachments/assets/31dbfd5a-00fa-498c-9ffc-bd1b1e66fbab" width="48%" />
+  
   <p><em>Generated strictly via VibeCurb skills.</em></p>
 </div>
 
